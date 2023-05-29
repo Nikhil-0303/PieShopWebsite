@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="site.css" type="text/css">
+    <title>Bethany's Pie Shop</title>
+    <style> 
+        .input-group{
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: 1000;
+        }
+
+        input[type="reset"]{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="pies.html">Pies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>  
+        <aside><img src="Images/logo.PNG" alt="Bethhany's Pie Shop"></aside>
+
+        <div class ="pie">
+            <img src="">
+            <div class="columns">
+                <div class="title"></div>
+                <div class="price"></div>
+            </div>
+              
+        </div>
+
+        <article>
+          <h1>Order</h1>
+          <form action="http://localhost:7071/api/post" method="POST">
+            <div class="input-group">
+                <div label for ="first-name">First Name</div>
+                <div> <input type="text" name ="first-name" id="first-name"/></div>
+            </div>
+
+            <div class="input-group">
+                <div label for ="last-name">Last Name</div>
+                <div> <input type="text" name ="last-name" id="last-name"/></div>
+            </div>
+
+            <div class="input-group">
+                <div label for ="address">Address</div>
+                <div> <input type="text" name ="address" id="address"/></div>
+            </div>
+            <div class="input-group">
+                <div label for ="postal-address">Postal Address</div>
+                <div> <input type="text" name ="postal-address" id="postal-address"/></div>
+            </div>
+
+            <div class="input-group">
+                <div label for ="comments">Comment</div>
+                <div> <textarea  name ="comments" id="comments" rows="30" cols="70"></textarea></div>
+            </div>
+
+            <button type="reset" >Reset</button>
+            <button type="submit">Submit</button>
+
+          </form>
+        </article>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="pies.html">Pies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+<script>
+    window.addEventListener("DOMContentLoaded", function(e){
+        const order = localStorage.getItem("order");
+        if(order)
+        {
+            const pie = document.querySelector(".pie");
+            const title = pie.querySelector(".title");
+            const price = pie.querySelector(".price");
+
+            title.innerText = order.title;
+            price.innerText = order.price;
+        }
+    });
+</script>
+</html>
+
+
+<!--Javascript
+
+document.getelementbyid() - pass id and get the element
+
+document.queryselector() - pass class name and get the element.
+
+$0.getattribute();  eg : $0.getattribute("href");
+
+html5please.com -> check apis for fallbacks and polyfills.
+canisue.com -> browser support for API.
+
+objects cant be stored in localstorage. can store only strings.
+    so convert using Json.stringify();
+
+-->
